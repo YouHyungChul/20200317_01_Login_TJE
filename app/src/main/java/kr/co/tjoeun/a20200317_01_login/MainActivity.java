@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 //    참조형 변수 Button을 만들어서 null로 세팅;
     Button loginBtn = null;
     TextView findPwTxt = null;
+    TextView signUpTxt = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 //        findPwTxt 로 id를 부여하자.
         findPwTxt = findViewById(R.id.findPwTxt);
         findPwTxt.setText("비번 찾기");
+        signUpTxt = findViewById(R.id.signUpTxt);
 
 //        로그인 버튼이 눌리면 => 비번 찾기 버튼을 "AAA" 로 변경
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +55,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+//        회원가입을 누르면 => "회원가입 화면으로 이동합니다." 안내문구 출력
+        signUpTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "회원가입 화면으로 이동합니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
